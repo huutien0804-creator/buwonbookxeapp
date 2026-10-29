@@ -1,0 +1,6 @@
+{
+  "name": "Ứng Dụng Đặt Xe Nội Bộ",
+  "description": "Hệ thống quản lý đặt xe nội bộ công ty, điều phối đội xe và đồng bộ tự động với Google Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
