@@ -11,16 +11,10 @@ export const DEPARTMENTS = [
 ];
 
 export const POPULAR_LOCATIONS = [
-  'Trụ sở chính: Keangnam Landmark 72, Phạm Hùng, Hà Nội',
-  'Văn phòng Chi nhánh: Tòa nhà Bitexco, Q.1, TP. Hồ Chí Minh',
-  'Nhà máy Sản xuất số 1: KCN VSIP 1, Bình Dương',
-  'Nhà máy Công nghệ cao: KCN Quế Võ, Bắc Ninh',
+  'Nhà máy: Road 4A, Bau Xeo I.P,Trang Bom Commune, Dong Nai City,',
+  'Văn phòng HCM: 62 Nguyen Quy Duc, Binh Trung Ward, HCM City',
   'Sân bay Quốc tế Nội Bài (Nhà ga T1/T2)',
   'Sân bay Quốc tế Tân Sơn Nhất',
-  'Trung tâm Hội nghị Quốc gia, Hà Nội',
-  'Khách sạn JW Marriott, Đỗ Đức Dục, Nam Từ Liêm',
-  'Cảng Đình Vũ, Hải Phòng',
-  'Kho vận Long Thành, Đồng Nai',
 ];
 
 // Profile mặc định cho từng vai trò kiểm thử (Role 0: Admin, 1 -> 4)
