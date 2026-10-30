@@ -1,13 +1,16 @@
 import { Vehicle, Driver, Booking, NumericRole, UserProfile } from '../types/fleet';
 
 export const DEPARTMENTS = [
-  'Phòng Kinh Doanh',
-  'Phòng Kỹ Thuật & Dự Án',
-  'Phòng Marketing',
+  'Phòng Sales',
+  'Phòng GA',
+  'Phòng HR',
   'Ban Giám Đốc',
-  'Phòng Nhân Sự & Hành Chính',
-  'Phòng Kế Toán & Tài Chính',
-  'Khối Vận Hành',
+  'Phòng Kế Toán',
+  'Phòng Mua Hàng',
+  'Xưởng IP',
+  'Xưởng OS',
+  'Xưởng MB',
+  'Phòng IT',
 ];
 
 export const POPULAR_LOCATIONS = [
@@ -34,7 +37,7 @@ export const DEFAULT_PROFILES: Record<NumericRole, UserProfile> = {
     email: 'an.nguyen@company.com',
     phone: '0912 345 678',
     role: 1,
-    department: 'Phòng Kinh Doanh',
+    department: 'Phòng Sales',
   },
   2: {
     id: 'user_mgr_01',
@@ -42,7 +45,7 @@ export const DEFAULT_PROFILES: Record<NumericRole, UserProfile> = {
     email: 'binh.tran@company.com',
     phone: '0903 112 233',
     role: 2,
-    department: 'Phòng Kinh Doanh',
+    department: 'Phòng Sales',
   },
   3: {
     id: 'user_disp_01',
@@ -50,7 +53,7 @@ export const DEFAULT_PROFILES: Record<NumericRole, UserProfile> = {
     email: 'dieuphoi@company.com',
     phone: '0988 555 777',
     role: 3,
-    department: 'Bộ Phận Điều Phối Xe',
+    department: 'Phòng HR',
   },
   4: {
     id: 'user_drv_01',
@@ -59,7 +62,7 @@ export const DEFAULT_PROFILES: Record<NumericRole, UserProfile> = {
     email: 'taixe.cuong@company.com',
     phone: '0901 234 567',
     role: 4,
-    department: 'Đội Xe Công Ty',
+    department: 'Phòng IT',
   },
 };
 
