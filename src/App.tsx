@@ -581,7 +581,7 @@ export default function App() {
       syncedToSheets: false,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-    
+};    
     setBookings((prev) => [newBooking, ...prev]);
 
     // Auto-sync to Google Sheets if connected
@@ -596,7 +596,6 @@ export default function App() {
       })
       .catch(console.error);
   }
-
     setSyncFeedback(
       lang === 'vi'
         ? `✓ Đã tạo phiếu đăng ký ${code} thành công!`
