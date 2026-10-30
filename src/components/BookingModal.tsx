@@ -152,13 +152,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   // Rough distance calculation based on selected locations
   const calculateEstimatedDistance = () => {
-    if (destination.includes('Sân bay Nội Bài') || destination.includes('Airport')) return 32;
-    if (destination.includes('Bắc Ninh')) return 45;
-    if (destination.includes('Hải Phòng')) return 125;
-    if (destination.includes('Bình Dương')) return 35;
-    if (destination.includes('JW Marriott') || destination.includes('Hội nghị Quốc gia')) return 8;
-    return 20;
-  };
+  const dest = destination || '';
+  if (dest.includes('Sân bay Nội Bài') || dest.includes('Airport')) return 32;
+  if (dest.includes('Bắc Ninh')) return 45;
+  if (dest.includes('Hải Phòng')) return 125;
+  if (dest.includes('Bình Dương')) return 35;
+  if (dest.includes('JW Marriott') || dest.includes('Hội nghị Quốc gia')) return 8;
+  return 20;
+};
 
   const estimatedDist = calculateEstimatedDistance() * (tripType === 'round-trip' ? 2 : 1);
   const estimatedMin = Math.round(estimatedDist * 2.2);
