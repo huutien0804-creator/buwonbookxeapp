@@ -2,6 +2,17 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react' // hoặc plugin vue tùy dự án của bạn
+
+export default defineConfig({
+  plugins: [react()],
+  preview: {
+    allowedHosts: ['buwonbookxeapp.onrender.com', 'true'], // Cho phép tên miền của Render truy cập
+    host: true,
+    port: 10000
+  }
+})
 
 export default defineConfig(() => {
   return {
