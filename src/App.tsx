@@ -581,6 +581,14 @@ export default function App() {
       syncedToSheets: false,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
+      // 1. GHI THẲNG LÊN GOOGLE SHEETS NGAY KHI TẠO PHIẾU
+try {
+  if (spreadsheetId && accessToken) {
+    await appendBookingToSheet(accessToken, spreadsheetId, newBooking);
+  }
+} catch (error) {
+  console.error("Lỗi đồng bộ lên Google Sheets:", error);
+}
     };
 
     setBookings((prev) => [newBooking, ...prev]);
