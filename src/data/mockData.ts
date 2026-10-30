@@ -11,7 +11,7 @@ export const DEPARTMENTS = [
 ];
 
 export const POPULAR_LOCATIONS = [
-  'Nhà máy: Road 4A, Bau Xeo I.P,Trang Bom Commune, Dong Nai City,',
+  'Nhà máy: Road 4A, Bau Xeo I.P,Trang Bom Commune, Dong Nai City',
   'Văn phòng HCM: 62 Nguyen Quy Duc, Binh Trung Ward, HCM City',
   'Sân bay Quốc tế Nội Bài (Nhà ga T1/T2)',
   'Sân bay Quốc tế Tân Sơn Nhất',
