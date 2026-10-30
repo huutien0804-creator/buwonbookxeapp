@@ -57,8 +57,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   }, [isOpen, currentUserName, currentUserEmail, currentUserPhone, currentUserDepartment]);
 
   const [purpose, setPurpose] = useState('');
-  const [pickupLocation, setPickupLocation] = useState(POPULAR_LOCATIONS[0]);
-  const [destination, setDestination] = useState(POPULAR_LOCATIONS[4]); // Sân bay
+
+  // SỬA AN TOÀN: Kiểm tra mảng POPULAR_LOCATIONS trước khi lấy phần tử
+  const defaultLocations = Array.isArray(POPULAR_LOCATIONS) && POPULAR_LOCATIONS.length > 0 ? POPULAR_LOCATIONS : [''];
+  const [pickupLocation, setPickupLocation] = useState(defaultLocations[0] || '');
+  const [destination, setDestination] = useState(defaultLocations[1] || defaultLocations[0] || '');
 
   const todayStr = new Date().toISOString().split('T')[0];
   const [departureDate, setDepartureDate] = useState(todayStr);
@@ -150,16 +153,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }
   };
 
-  // Rough distance calculation based on selected locations
+  // SỬA AN TOÀN DỨT ĐIỂM: Thêm bảo vệ (destination || '') chống crash .includes()
   const calculateEstimatedDistance = () => {
-  const dest = destination || '';
-  if (dest.includes('Sân bay Nội Bài') || dest.includes('Airport')) return 32;
-  if (dest.includes('Bắc Ninh')) return 45;
-  if (dest.includes('Hải Phòng')) return 125;
-  if (dest.includes('Bình Dương')) return 35;
-  if (dest.includes('JW Marriott') || dest.includes('Hội nghị Quốc gia')) return 8;
-  return 20;
-};
+    const dest = destination || '';
+    if (dest.includes('Sân bay Nội Bài') || dest.includes('Airport')) return 32;
+    if (dest.includes('Bắc Ninh')) return 45;
+    if (dest.includes('Hải Phòng')) return 125;
+    if (dest.includes('Bình Dương')) return 35;
+    if (dest.includes('JW Marriott') || dest.includes('Hội nghị Quốc gia')) return 8;
+    return 20;
+  };
 
   const estimatedDist = calculateEstimatedDistance() * (tripType === 'round-trip' ? 2 : 1);
   const estimatedMin = Math.round(estimatedDist * 2.2);
@@ -350,7 +353,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="mt-1 text-[11px] text-slate-500 bg-transparent border-0 underline cursor-pointer"
                 >
                   <option value="">{lang === 'vi' ? 'Chọn từ địa điểm nội bộ...' : 'Select company point...'}</option>
-                  {POPULAR_LOCATIONS.map((loc) => (
+                  {(POPULAR_LOCATIONS || []).map((loc) => (
                     <option key={loc} value={loc}>
                       {loc}
                     </option>
@@ -377,7 +380,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="mt-1 text-[11px] text-slate-500 bg-transparent border-0 underline cursor-pointer"
                 >
                   <option value="">{lang === 'vi' ? 'Chọn từ địa điểm nội bộ...' : 'Select company point...'}</option>
-                  {POPULAR_LOCATIONS.map((loc) => (
+                  {(POPULAR_LOCATIONS || []).map((loc) => (
                     <option key={loc} value={loc}>
                       {loc}
                     </option>
