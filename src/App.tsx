@@ -581,29 +581,21 @@ export default function App() {
       syncedToSheets: false,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      // 1. GHI THẲNG LÊN GOOGLE SHEETS NGAY KHI TẠO PHIẾU
-try {
-  if (spreadsheetId && accessToken) {
-    await appendBookingToSheet(accessToken, spreadsheetId, newBooking);
-  }
-} catch (error) {
-  console.error("Lỗi đồng bộ lên Google Sheets:", error);
-}
-    };
-
+    
     setBookings((prev) => [newBooking, ...prev]);
 
     // Auto-sync to Google Sheets if connected
-    if (accessToken && sheetsConfig.spreadsheetId && sheetsConfig.autoSync) {
-      appendBookingToSheet(accessToken, sheetsConfig.spreadsheetId, newBooking)
-        .then((ok) => {
-          if (ok) {
-            setBookings((prev) =>
-              prev.map((b) => (b.id === newBooking.id ? { ...b, syncedToSheets: true } : b))
-            );
-          }
-        })
-        .catch(console.error);
+    if (accessToken && sheetsConfig?.spreadsheetId) {
+    appendBookingToSheet(accessToken, sheetsConfig.spreadsheetId, newBooking)
+      .then((ok) => {
+        if (ok) {
+          setBookings((prev) =>
+            prev.map((b) => (b.id === newBooking.id ? { ...b, syncedToSheets: true } : b))
+          );
+        }
+      })
+      .catch(console.error);
+  }
     }
 
     setSyncFeedback(
