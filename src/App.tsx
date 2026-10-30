@@ -585,7 +585,7 @@ export default function App() {
     setBookings((prev) => [newBooking, ...prev]);
 
     // Auto-sync to Google Sheets if connected
-    if (accessToken && sheetsConfig?.spreadsheetId) {
+  if (accessToken && sheetsConfig?.spreadsheetId) {
     appendBookingToSheet(accessToken, sheetsConfig.spreadsheetId, newBooking)
       .then((ok) => {
         if (ok) {
@@ -596,7 +596,6 @@ export default function App() {
       })
       .catch(console.error);
   }
-    }
 
     setSyncFeedback(
       lang === 'vi'
